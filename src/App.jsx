@@ -10,6 +10,7 @@ function App() {
     e.preventDefault();
     setTodo([...todo, { id: Date.now(), schedule: newTodo }]);
     setNewTodo("");
+    console.log(todo);
   };
 
   const handleInputValue = (e) => {
@@ -19,7 +20,7 @@ function App() {
     <div>
       <h1>TODO</h1>
       <form className="formContainer" onSubmit={addTodo}>
-        <div className="userInputField">
+        <fieldset className="userInputField">
           <input
             type="text"
             placeholder="오늘 스케줄은?"
@@ -28,7 +29,7 @@ function App() {
             required
           ></input>
           <button type="submit">추가</button>
-        </div>
+        </fieldset>
       </form>
       <ul>
         {todo.map((item) => (
