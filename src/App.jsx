@@ -20,8 +20,9 @@ function App() {
   };
   const deleteTodo = (id) => {
     //id값의 확인을 통해 삭제한다.
-    const deleteTodo = todo.filter((item) => item.id !== id);
-    setTodo([deleteTodo]);
+    // const deleteTodo = todo.filter((item) => item.id !== id);
+    // setTodo([deleteTodo]);
+    setTodo(todo.filter((item) => item.id !== id));
   };
   const handleInputValue = (e) => {
     setNewTodo(e.target.value);
@@ -45,7 +46,7 @@ function App() {
         {todo.map((item) => (
           <li key={item.id}>
             {item.schedule}
-            <button type="button" onClick={deleteTodo}>
+            <button type="button" onClick={() => deleteTodo(item.id)}>
               삭제
             </button>
           </li>
