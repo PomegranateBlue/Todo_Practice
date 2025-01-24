@@ -1,4 +1,4 @@
-const TodoList = ({ todo }, deleteTodo) => {
+const TodoList = ({ todo, deleteTodo }) => {
   return (
     <ul>
       {todo.map((item) => (
