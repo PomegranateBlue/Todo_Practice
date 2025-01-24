@@ -4,13 +4,17 @@ import "./App.css";
 function App() {
   const [todo, setTodo] = useState([]);
   //할 일 목록 저장
+  //원본이 되는 데이터로서 해당 데이터의 복사본을 이용할 것
   const [newTodo, setNewTodo] = useState("");
 
   const addTodo = (e) => {
     e.preventDefault();
-    setTodo([...todo, { id: Date.now(), schedule: newTodo }]);
+    const newSchedule = {
+      id: Date.now(),
+      schedule: newTodo,
+    };
+    setTodo([...todo, newSchedule]);
     setNewTodo("");
-    console.log(todo);
   };
 
   const handleInputValue = (e) => {
@@ -33,7 +37,12 @@ function App() {
       </form>
       <ul>
         {todo.map((item) => (
-          <li key={item.id}>{item.schedule}</li>
+          <li key={item.id}>
+            {item.schedule}
+            <button type="button" onClick={(e) => console.log(e.target)}>
+              삭제
+            </button>
+          </li>
         ))}
       </ul>
     </div>
