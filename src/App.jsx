@@ -26,7 +26,9 @@ function App() {
     setNewTodo("");
   };
   const deleteTodo = (id) => {
-    setTodo(todo.filter((item) => item.id !== id));
+    const deletedTodo = todo.filter((item) => item.id !== id);
+    setTodo(deletedTodo);
+    localStorage.setItem("savedTodos", JSON.stringify(deletedTodo));
   };
   const handleInputValue = (e) => {
     setNewTodo(e.target.value);
