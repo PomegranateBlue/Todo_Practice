@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./App.css";
-
+import TodoList from "./components/TodoList.jsx";
 function App() {
   const [todo, setTodo] = useState([]);
   //할 일 목록 저장
@@ -48,16 +48,7 @@ function App() {
           <button type="submit">추가</button>
         </fieldset>
       </form>
-      <ul>
-        {todo.map((item) => (
-          <li key={item.id}>
-            {item.schedule}
-            <button type="button" onClick={() => deleteTodo(item.id)}>
-              삭제
-            </button>
-          </li>
-        ))}
-      </ul>
+      <TodoList todo={todo} deleteTodo={deleteTodo} />
     </div>
   );
 }
